@@ -13,14 +13,14 @@ int main()
 	start_t=clock();
 
 //////////////////////////////////////////////////////////////
-
+	FILE *fp;
 	int prime[PRINUM];
 	int division[PRINUM];
 	int calc[PRINUM];
 	int i1,i2;
 	int j1,j2,j3;
 	
-	
+	fp=fopen("/home/libert/Works/prime/prime","wt");
 	//배열 초기화
 	for(i1=PRINUM;i1>=0;i1--)
 	{
@@ -125,8 +125,10 @@ int main()
 				for(i1=PRINUM;i1>=0;i1--)
         	       	 	{
                 	        	printf("%d ",prime[i1]);
+					fprintf(fp,"%d ",prime[i1]);
               	  		}
 				printf("\n");
+				fprintf(fp,"\n");
 			
 			}
 			for(i1=0;i1<=PRINUM;i1++)
@@ -163,13 +165,13 @@ int main()
 
 
 
-
-
 //////////////////////////////////////////////////////////////
 
 	end_t=clock();
 	timer=(float)(clock()-start_t)/CLOCKS_PER_SEC;
 	printf("소요시간 : %.6fs \n",timer);
+	fprintf(fp,"\n\n소요시간 : %.6fs \n",timer);	
 
+	fclose(fp);
 }
 
