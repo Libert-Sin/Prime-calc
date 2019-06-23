@@ -24,7 +24,7 @@ int main()
 	//배열 초기화
 	for(i1=PRINUM;i1>=0;i1--)
 	{
-		prime[i1]=0;   
+		prime[i1]=0;
 		division[i1]=0;
 		calc[i1]=0;
 	}	
