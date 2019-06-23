@@ -1,7 +1,8 @@
 #include <stdio.h>
 #include <time.h>
- 
-#define PRINUM 10
+#include <stdlib.h>
+
+#define PRINUM 698522
 #define MOVE 1000000000
 
 
@@ -13,14 +14,13 @@ int main()
 	start_t=clock();
 
 //////////////////////////////////////////////////////////////
-	FILE *fp;
+	char cmd_buffer[162];
 	int prime[PRINUM];
 	int division[PRINUM];
 	int calc[PRINUM];
 	int i1,i2;
 	int j1,j2,j3;
 	
-	fp=fopen("/home/libert/Works/prime/prime","wt");
 	//배열 초기화
 	for(i1=PRINUM;i1>=0;i1--)
 	{
@@ -125,10 +125,11 @@ int main()
 				for(i1=PRINUM;i1>=0;i1--)
         	       	 	{
                 	        	printf("%d ",prime[i1]);
-					fprintf(fp,"%d ",prime[i1]);
+					sprintf(cmd_buffer,"echo -n %d >> /home/libert/Works/prime/prime", prime[i1]);
+					system(cmd_buffer);
               	  		}
 				printf("\n");
-				fprintf(fp,"\n");
+                                system("echo "" >> /home/libert/Works/prime/prime");
 			
 			}
 			for(i1=0;i1<=PRINUM;i1++)
@@ -170,8 +171,7 @@ int main()
 	end_t=clock();
 	timer=(float)(clock()-start_t)/CLOCKS_PER_SEC;
 	printf("소요시간 : %.6fs \n",timer);
-	fprintf(fp,"\n\n소요시간 : %.6fs \n",timer);	
-
-	fclose(fp);
+	sprintf(cmd_buffer,"echo -ne \n\n소요시간 : %.6fs \n >> /home/libert/Works/prime/prime",timer);
+	system(cmd_buffer);
 }
 
