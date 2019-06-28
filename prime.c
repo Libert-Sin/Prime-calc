@@ -10,7 +10,7 @@
  
 int main()
 {
-	clock_t start_t,end_t;
+	clock_t start_t;
 	float timer;
 	start_t=clock();
  
@@ -169,7 +169,6 @@ int main()
  
 //////////////////////////////////////////////////////////////
  
-	end_t=clock();
 	timer=(float)(clock()-start_t)/CLOCKS_PER_SEC;
 	printf("소요시간 : %.6fs \n",timer);
 	sprintf(cmd_buffer,"echo -ne \n\n소요시간 : %.6fs \n >> /home/libert/prime/prime",timer);
