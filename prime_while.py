@@ -1,10 +1,7 @@
 import time
-
 a=3
-
 prime=[2]
 stime=time.time()
-
 while 1==1:
 	b=a-1
 	r=0
