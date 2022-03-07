@@ -4,7 +4,7 @@ b=[]
 prime={2:0}
 stime=time.time()
 for n1 in a:
-	b=range(2,n1)
+	b=range(2,n1/2)
 	r=0
 	for n2 in b:
 		if n1%n2 == 0:
